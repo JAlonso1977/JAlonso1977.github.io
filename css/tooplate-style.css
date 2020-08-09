@@ -164,7 +164,6 @@ a:hover, a:active, a:focus {
   text-align: center;
 }
 
-
 /*---------------------------------------
   Pre loader section
 -----------------------------------------*/
@@ -277,9 +276,6 @@ a:hover, a:active, a:focus {
   font-size: 62px;
 }
 
-.contrast {
-  color:#938D8D;
-}
 
 /*---------------------------------------
   Service section
@@ -305,7 +301,10 @@ a:hover, a:active, a:focus {
 .service-thumb:hover h4 {
   color: #ffffff;
 }
-
+.service-thumb:hover .fa,
+.service-thumb:hover p {
+  color: #ffffff;
+}
 .service-thumb h4 {
   padding-bottom: 5px;
 }
