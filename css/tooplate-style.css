@@ -277,6 +277,10 @@ a:hover, a:active, a:focus {
   font-size: 62px;
 }
 
+.contrast {
+  color:#938D8D;
+}
+
 /*---------------------------------------
   Service section
 -----------------------------------------*/
