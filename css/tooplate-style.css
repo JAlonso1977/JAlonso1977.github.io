@@ -35,7 +35,7 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   color: #000000;
-  font-size: 50px;
+  font-size: 60px;
   line-height: normal;
 }
 
@@ -61,7 +61,7 @@ h4 {
 
 p {
   color: #000000;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 25px;
   letter-spacing: 0.2px;
@@ -76,34 +76,21 @@ p {
   font-size: 25px;
 }
 
+.textin1 {
+  font-size: 16px;
+  text-align: left;
 
+}
+
+.textin2 {
+  font-size: 20px;
+  text-align: left;
+  color: #FFFFFF;
+}
 
 /*---------------------------------------
   Buttons
 -----------------------------------------*/
-
-.section-btn {
-  background: #000000;
-  border: none;
-  border-radius: 50px;
-  color: #f0f0f0;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  padding: 18px 32px;
-  margin-top: 42px;
-  text-transform: uppercase;
-  -webkit-transition: all ease-in-out 0.4s;
-  transition: all ease-in-out 0.4s;
-}
-
-.section-btn:focus,
-.section-btn:hover {
-  background: #ffffff;
-  color: #000000;
-}
-
-
 
 /*---------------------------------------
   General
@@ -114,15 +101,10 @@ html{
 }
 
 a {
-  color: #757557;
+  color: #FFFFFF;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   text-decoration: none !important;
-}
-
-a:hover, a:active, a:focus {
-  color: #000000;
-  outline: none;
 }
 
 * {
@@ -146,10 +128,8 @@ a:hover, a:active, a:focus {
   padding-bottom: 32px;
 }
 
-.novels {
-  color: #000000;
-  font-size: 40px;
-  font-weight: bold;
+.blanco {
+  color: #FFFFFF;
 }
 
 #service, #about, #work,
@@ -188,6 +168,35 @@ a:hover, a:active, a:focus {
   position: relative;
 }
 
+.botonera{
+  float:right;
+  padding: 15px;
+}
+
+.boton:hover {
+  background-color: #E5322E;
+  border: 2px solid #E5322E;
+  color: white;
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px
+}
+
+.boton {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  border: 2px solid #000000;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+}
+
 .spinner:before {
   content: '';
   box-sizing: border-box;
@@ -219,9 +228,11 @@ a:hover, a:active, a:focus {
 -----------------------------------------*/
 
 #home {
-  background: url('../images/portadaedit.jpg') 50% 0 repeat-y fixed;
+  background: url('../images/fondo_est.png') 100% 0 repeat-y fixed;
   background-size: cover;
-  padding-top: 22%;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 10%;
   background-position: center center;
   display: -webkit-box;
   display: -webkit-flex;
@@ -236,8 +247,12 @@ a:hover, a:active, a:focus {
   text-align: right;
 }
 
+#sub {
+    font-size: 30px;
+}
+
 #home2 {
-  background: url('../images/page1picture.jpg') 100% 0 repeat-y fixed;
+  background: url('../images/portada1_2.png') 100% 0 repeat-y fixed;
   background-size: cover;
   padding-top: 15%;
   background-position: center center;
@@ -249,15 +264,19 @@ a:hover, a:active, a:focus {
   -webkit-align-items: center;
   -ms-flex-align: center;
    align-items: center;
-  height: 82vh;
+  height: 90vh;
   position: relative;
   text-align: right;
 }
 
 #home3 {
-  background: url('../images/page2picture.jpg') 100% 0 repeat-y fixed;
+  background: url('../images/fondo_est.png') 100% 0 repeat-y fixed;
   background-size: cover;
   padding-top: 15%;
+  padding-left: 5%;
+  padding-bottom: 15%;
+  padding-right: 35%;
+  margin-bottom: 4%;
   background-position: center center;
   display: -webkit-box;
   display: -webkit-flex;
@@ -276,11 +295,146 @@ a:hover, a:active, a:focus {
   font-size: 62px;
 }
 
+#itinerario {
+padding-top:5px;
+padding-bottom:5px;
+}
+
+#itinere{
+  text-align: center;
+}
+
+#foto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*---------------------------------------
   Service section
 -----------------------------------------*/
+#itine{
+  margin-bottom: 2%;
+}
 
+#salud{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#salud2{
+  background: #8290AB;
+}
+
+#calidad{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#calidad2{
+  background: #8290AB;
+}
+
+#breeam0{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#breeam01{
+  background: #8290AB;
+}
+
+#breeam{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#breeam1{
+  background: #8290AB;
+}
+
+#bim0{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#bim01{
+  background: #8290AB;
+}
+
+#bim{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#bim1{
+  background: #8290AB;
+}
+
+#lean0{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#lean01{
+  background: #8290AB;
+}
+
+#lean{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#lean1{
+  background: #8290AB;
+}
+#aemet0{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#aemet01{
+  background: #8290AB;
+}
+
+#aemet{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#aemet1{
+  background: #8290AB;
+}
+
+#perso0{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#perso01{
+  background: #8290AB;
+}
+
+#perso{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#perso1{
+  background: #8290AB;
+}
+
+#fin{
+  margin-bottom: 2%;
+  display: none;
+}
+
+#fin1{
+  background: #8290AB;
+}
+.boton{
+  align-content: right;
+}
 .service-thumb {
   background: #ffffff;
   border-radius: 5px;
@@ -293,7 +447,7 @@ a:hover, a:active, a:focus {
 }
 
 .service-thumb:hover {
-  background: #2b2b2b;
+  background: #8290AB;
   top: -5px;
 }
 
@@ -415,19 +569,6 @@ a:hover, a:active, a:focus {
   height: 55px;
 }
 
-#contact button#submit {
-  background: #2b2b2b;
-  border: none;
-  border-radius: 50px;
-  color: #ffffff;
-  height: 50px;
-  margin-top: 24px;
-}
-
-#contact button#submit:hover {
-  background: #7682cc;
-  color: #ffffff;
-}
 /*---------------------------------------
   Maps
 -----------------------------------------*/
@@ -455,7 +596,6 @@ footer p {
   text-align: center;
   padding: 5px 0;
 }
-
 
 
 /*---------------------------------------
