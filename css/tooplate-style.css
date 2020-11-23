@@ -226,6 +226,10 @@ a {
   to {transform: rotate(360deg);}
 }
 
+#vid {
+  padding-bottom: 80px;
+}
+
 #service2 {
   text-align: center;
   background-color: white;
@@ -233,7 +237,7 @@ a {
 }
 #service3{
   text-align: center;
-  background-color: #C5E0B4;
+  background-color: #C0C0C0;
   font-size: 30px;
 }
 
