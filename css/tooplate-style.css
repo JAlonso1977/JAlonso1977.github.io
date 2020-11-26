@@ -324,9 +324,15 @@ a {
 padding-top:5px;
 padding-bottom:5px;
 }
+#video2 {
+  padding-top:30px;
+}
 
 #itinere{
   text-align: center;
+  padding-top:15px;
+  padding-bottom:15px;
+  font-size: 80%;
 }
 
 #foto{
@@ -340,6 +346,7 @@ padding-bottom:5px;
 -----------------------------------------*/
 #itine{
   margin-bottom: 2%;
+  text-align: center;
 }
 
 #Pregunta1{
