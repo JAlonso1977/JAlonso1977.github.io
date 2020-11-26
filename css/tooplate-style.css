@@ -233,6 +233,10 @@ a {
 #sub2 {
   font-size: 40px;
 }
+
+#sub3 {
+  font-size: 40px;
+}
 #service2 {
   text-align: center;
   background-color: white;
@@ -684,7 +688,7 @@ footer p {
 
   h1 {
     font-size: 42px;
-    color: #FF0000;
+    color: black;
   }
 
   h2 {
