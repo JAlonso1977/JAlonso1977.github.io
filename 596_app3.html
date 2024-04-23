@@ -1,0 +1,4122 @@
+
+<!DOCTYPE html>
+<html lang = "es">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<head>
+<meta charset="UTF-8">
+<title>OBRA 596 APP</title>
+<script>
+
+function actividades() {
+
+  const valores = window.location.search;
+  const urlParams = new URLSearchParams(valores);
+  var idViv = urlParams.get('id');
+  var idNum = urlParams.get('numero');
+  var idNombre = urlParams.get('casa');
+  document.getElementById('vivienda').innerHTML=idViv;
+  document.getElementById('ord_viv').innerHTML=idNum;
+  document.getElementById('nom_viv').innerHTML=idNombre;
+
+  const requestURL = 'https://controlobraapi.i3code.net/api/Actividades?idObra=1035';//incluir el idObra
+  const request = new XMLHttpRequest();
+  request.open('GET', requestURL);
+  request.responseType = 'json';
+  request.send();
+  request.onload = function () {
+        const registro = request.response;
+        myvaract = registro['data'];
+        list_act=[];
+        list_emp=[];
+        //document.getElementById('textin').innerHTML=myvar;
+        var itera2 = Object.keys(myvaract).length;
+        for(var n = 0; n < itera2; n++) {
+          let current = myvaract[n];
+          var datact1 = current.nombre;
+          var datact2 = current.id;
+          var datact3 = current.empresa;
+          list_act.push(datact1);
+          list_emp.push(datact3);
+          console.log(list_act)
+          console.log(list_emp)
+    }
+  }
+  actualizar()
+}
+
+function ver() {
+  document.getElementById('texto').innerHTML=list_act;
+  document.getElementById('texto2').innerHTML=list_emp;
+}
+
+function actualizar() {
+  idvivienda=document.getElementById('vivienda').innerHTML;
+  const requestURL = 'https://controlobraapi.i3code.net/api/Registros?idVivienda='+idvivienda+'';//incluir el idObra
+  const request = new XMLHttpRequest();
+  request.open('GET', requestURL);
+  request.responseType = 'json';
+  request.send();
+  request.onload = function () {
+        const registro = request.response;
+        myvaract = registro['data'];
+        list_act1=[];
+        list_emp1=[];
+        //document.getElementById('textin').innerHTML=myvar;
+        var itera2 = Object.keys(myvaract).length;
+        for(var n = 0; n < itera2; n++) {
+          let current = myvaract[n];
+          var datact1 = current.actividad;
+          var datact2 = current.id;
+          var datact3 = current.empresa;
+          var datact4 = current.status;
+          var datact5 = current.comentario;
+//inicio rutina actividades
+//Actividad 0
+Act0 = document.getElementById('Act0').innerHTML;
+if (datact1==Act0) {
+    document.getElementById('estAct0').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col0').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col0').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col0').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto0").value=datact5;
+}
+//Actividad 1
+Act1 = document.getElementById('Act1').innerHTML;
+if (datact1==Act1) {
+    document.getElementById('estAct1').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col1').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col1').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col1').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto1").value=datact5;
+}
+//Actividad 2
+Act2 = document.getElementById('Act2').innerHTML;
+if (datact1==Act2) {
+    document.getElementById('estAct2').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col2').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col2').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col2').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto2").value=datact5;
+}
+//Actividad 3
+Act3 = document.getElementById('Act3').innerHTML;
+if (datact1==Act3) {
+    document.getElementById('estAct3').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col3').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col3').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col3').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto3").value=datact5;
+}
+//Actividad 4
+Act4 = document.getElementById('Act4').innerHTML;
+if (datact1==Act4) {
+    document.getElementById('estAct4').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col4').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col4').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col4').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto4").value=datact5;
+}
+//Actividad 5
+Act5 = document.getElementById('Act5').innerHTML;
+if (datact1==Act5) {
+    document.getElementById('estAct5').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col5').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col5').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col5').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto5").value=datact5;
+}
+//Actividad 6
+Act6 = document.getElementById('Act6').innerHTML;
+if (datact1==Act6) {
+    document.getElementById('estAct6').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col6').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col6').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col6').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto6").value=datact5;
+}
+//Actividad 7
+Act7 = document.getElementById('Act7').innerHTML;
+if (datact1==Act7) {
+    document.getElementById('estAct7').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col7').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col7').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col7').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto7").value=datact5;
+}
+//Actividad 8
+Act8 = document.getElementById('Act8').innerHTML;
+if (datact1==Act8) {
+    document.getElementById('estAct8').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col8').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col8').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col8').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto8").value=datact5;
+}
+//Actividad 9
+Act9 = document.getElementById('Act9').innerHTML;
+if (datact1==Act9) {
+    document.getElementById('estAct9').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col9').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col9').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col9').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto9").value=datact5;
+}
+//Actividad 10
+Act10 = document.getElementById('Act10').innerHTML;
+if (datact1==Act10) {
+    document.getElementById('estAct10').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col10').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col10').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col10').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto10").value=datact5;
+}
+//Actividad 11
+Act11 = document.getElementById('Act11').innerHTML;
+if (datact1==Act11) {
+    document.getElementById('estAct11').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col11').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col11').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col11').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto11").value=datact5;
+}
+//Actividad 12
+Act12 = document.getElementById('Act12').innerHTML;
+if (datact1==Act12) {
+    document.getElementById('estAct12').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col12').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col12').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col12').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto12").value=datact5;
+}
+//Actividad 13
+Act13 = document.getElementById('Act13').innerHTML;
+if (datact1==Act13) {
+    document.getElementById('estAct13').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col13').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col13').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col13').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto13").value=datact5;
+}
+//Actividad 14
+Act14 = document.getElementById('Act14').innerHTML;
+if (datact1==Act14) {
+    document.getElementById('estAct14').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col14').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col14').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col14').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto14").value=datact5;
+}
+//Actividad 15
+Act15 = document.getElementById('Act15').innerHTML;
+if (datact1==Act15) {
+    document.getElementById('estAct15').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col15').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col15').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col15').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto15").value=datact5;
+}
+//Actividad 16
+Act16 = document.getElementById('Act16').innerHTML;
+if (datact1==Act16) {
+    document.getElementById('estAct16').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col16').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col16').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col16').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto16").value=datact5;
+}
+//Actividad 17
+Act17 = document.getElementById('Act17').innerHTML;
+if (datact1==Act17) {
+    document.getElementById('estAct17').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col17').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col17').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col17').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto17").value=datact5;
+}
+//Actividad 18
+Act18 = document.getElementById('Act18').innerHTML;
+if (datact1==Act18) {
+    document.getElementById('estAct18').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col18').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col18').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col18').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto18").value=datact5;
+}
+//Actividad 19
+Act19 = document.getElementById('Act19').innerHTML;
+if (datact1==Act19) {
+    document.getElementById('estAct19').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col19').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col19').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col19').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto19").value=datact5;
+}
+//Actividad 20
+Act20 = document.getElementById('Act20').innerHTML;
+if (datact1==Act20) {
+    document.getElementById('estAct20').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col20').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col20').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col20').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto20").value=datact5;
+}
+//Actividad 21
+Act21 = document.getElementById('Act21').innerHTML;
+if (datact1==Act21) {
+    document.getElementById('estAct21').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col21').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col21').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col21').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto21").value=datact5;
+}
+//Actividad 22
+Act22 = document.getElementById('Act22').innerHTML;
+if (datact1==Act22) {
+    document.getElementById('estAct22').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col22').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col22').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col22').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto22").value=datact5;
+}
+//Actividad 23
+Act23 = document.getElementById('Act23').innerHTML;
+if (datact1==Act23) {
+    document.getElementById('estAct23').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col23').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col23').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col23').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto23").value=datact5;
+}
+//Actividad 24
+Act24 = document.getElementById('Act24').innerHTML;
+if (datact1==Act24) {
+    document.getElementById('estAct24').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col24').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col24').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col24').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto24").value=datact5;
+}
+//Actividad 25
+Act25 = document.getElementById('Act25').innerHTML;
+if (datact1==Act25) {
+    document.getElementById('estAct25').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col25').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col25').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col25').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto25").value=datact5;
+}
+//Actividad 26
+Act26 = document.getElementById('Act26').innerHTML;
+if (datact1==Act26) {
+    document.getElementById('estAct26').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col26').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col26').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col26').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto26").value=datact5;
+}
+//Actividad 27
+Act27 = document.getElementById('Act27').innerHTML;
+if (datact1==Act27) {
+    document.getElementById('estAct27').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col27').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col27').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col27').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto27").value=datact5;
+}
+//Actividad 28
+Act28 = document.getElementById('Act28').innerHTML;
+if (datact1==Act28) {
+    document.getElementById('estAct28').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col28').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col28').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col28').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto28").value=datact5;
+}
+//Actividad 29
+Act29 = document.getElementById('Act29').innerHTML;
+if (datact1==Act29) {
+    document.getElementById('estAct29').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col29').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col29').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col29').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto29").value=datact5;
+}
+//Actividad 30
+Act30 = document.getElementById('Act30').innerHTML;
+if (datact1==Act30) {
+    document.getElementById('estAct30').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col30').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col30').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col30').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto30").value=datact5;
+}
+//Actividad 31
+Act31 = document.getElementById('Act31').innerHTML;
+if (datact1==Act31) {
+    document.getElementById('estAct31').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col31').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col31').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col31').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto31").value=datact5;
+}
+//Actividad 32
+Act32 = document.getElementById('Act32').innerHTML;
+if (datact1==Act32) {
+    document.getElementById('estAct32').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col32').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col32').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col32').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto32").value=datact5;
+}
+//Actividad 33
+Act33 = document.getElementById('Act33').innerHTML;
+if (datact1==Act33) {
+    document.getElementById('estAct33').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col33').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col33').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col33').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto33").value=datact5;
+}
+//Actividad 34
+Act34 = document.getElementById('Act34').innerHTML;
+if (datact1==Act34) {
+    document.getElementById('estAct34').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col34').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col34').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col34').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto34").value=datact5;
+}
+//Actividad 35
+Act35 = document.getElementById('Act35').innerHTML;
+if (datact1==Act35) {
+    document.getElementById('estAct35').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col35').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col35').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col35').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto35").value=datact5;
+}
+//Actividad 36
+Act36 = document.getElementById('Act36').innerHTML;
+if (datact1==Act36) {
+    document.getElementById('estAct36').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col36').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col36').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col36').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto36").value=datact5;
+}
+//Actividad 37
+Act37 = document.getElementById('Act37').innerHTML;
+if (datact1==Act37) {
+    document.getElementById('estAct37').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col37').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col37').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col37').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto37").value=datact5;
+}
+//Actividad 38
+Act38 = document.getElementById('Act38').innerHTML;
+if (datact1==Act38) {
+    document.getElementById('estAct38').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col38').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col38').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col38').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto38").value=datact5;
+}
+//Actividad 39
+Act39 = document.getElementById('Act39').innerHTML;
+if (datact1==Act39) {
+    document.getElementById('estAct39').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col39').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col39').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col39').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto39").value=datact5;
+}
+//Actividad 40
+Act40 = document.getElementById('Act40').innerHTML;
+if (datact1==Act40) {
+    document.getElementById('estAct40').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col40').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col40').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col40').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto40").value=datact5;
+}
+//Actividad 41
+Act41 = document.getElementById('Act41').innerHTML;
+if (datact1==Act41) {
+    document.getElementById('estAct41').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col41').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col41').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col41').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto41").value=datact5;
+}
+//Actividad 42
+Act42 = document.getElementById('Act42').innerHTML;
+if (datact1==Act42) {
+    document.getElementById('estAct42').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col42').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col42').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col42').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto42").value=datact5;
+}
+//Actividad 43
+Act43 = document.getElementById('Act43').innerHTML;
+if (datact1==Act43) {
+    document.getElementById('estAct43').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col43').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col43').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col43').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto43").value=datact5;
+}
+//Actividad 44
+Act44 = document.getElementById('Act44').innerHTML;
+if (datact1==Act44) {
+    document.getElementById('estAct44').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col44').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col44').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col44').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto44").value=datact5;
+}
+//Actividad 45
+Act45 = document.getElementById('Act45').innerHTML;
+if (datact1==Act45) {
+    document.getElementById('estAct45').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col45').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col45').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col45').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto45").value=datact5;
+}
+//Actividad 46
+Act46 = document.getElementById('Act46').innerHTML;
+if (datact1==Act46) {
+    document.getElementById('estAct46').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col46').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col46').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col46').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto46").value=datact5;
+}
+//Actividad 47
+Act47 = document.getElementById('Act47').innerHTML;
+if (datact1==Act47) {
+    document.getElementById('estAct47').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col47').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col47').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col47').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto47").value=datact5;
+}
+//Actividad 48
+Act48 = document.getElementById('Act48').innerHTML;
+if (datact1==Act48) {
+    document.getElementById('estAct48').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col48').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col48').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col48').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto48").value=datact5;
+}
+//Actividad 49
+Act49 = document.getElementById('Act49').innerHTML;
+if (datact1==Act49) {
+    document.getElementById('estAct49').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col49').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col49').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col49').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto49").value=datact5;
+}
+//Actividad 50
+Act50 = document.getElementById('Act50').innerHTML;
+if (datact1==Act50) {
+    document.getElementById('estAct50').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col50').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col50').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col50').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto50").value=datact5;
+}
+//Actividad 51
+Act51 = document.getElementById('Act51').innerHTML;
+if (datact1==Act51) {
+    document.getElementById('estAct51').innerHTML=datact2;
+if(datact4=="Terminado conforme"){
+   document.getElementById('estAct_col51').style.background="#00ff00";
+   }
+if(datact4=="Terminado no conforme"){
+    document.getElementById('estAct_col51').style.background="#F1F622";
+    }
+if(datact4=="Sin terminar"){
+   document.getElementById('estAct_col51').style.background="#FE2722";
+    }
+document.getElementById("ingresatexto51").value=datact5;
+}
+
+//fin rutina actividades
+    }
+  }
+}
+function ConfirmDemo() {
+    //Ingresamos un mensaje
+    var mensaje = confirm("Registro guardado");
+    //Verificamos si el usuario acepto el mensaje
+    if (mensaje) {
+    actualizar();//actualizar html según obra
+    }
+}
+//Actividades POST
+function actividad0(status) {
+  var dato1 = Number(document.getElementById("estAct0").innerHTML);
+  var dato2 = document.getElementById("Act0").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto0").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad1(status) {
+  var dato1 = Number(document.getElementById("estAct1").innerHTML);
+  var dato2 = document.getElementById("Act1").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto1").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad2(status) {
+  var dato1 = Number(document.getElementById("estAct2").innerHTML);
+  var dato2 = document.getElementById("Act2").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto2").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad3(status) {
+  var dato1 = Number(document.getElementById("estAct3").innerHTML);
+  var dato2 = document.getElementById("Act3").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto3").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad4(status) {
+  var dato1 = Number(document.getElementById("estAct4").innerHTML);
+  var dato2 = document.getElementById("Act4").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto4").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad5(status) {
+  var dato1 = Number(document.getElementById("estAct5").innerHTML);
+  var dato2 = document.getElementById("Act5").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto5").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad6(status) {
+  var dato1 = Number(document.getElementById("estAct6").innerHTML);
+  var dato2 = document.getElementById("Act6").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto6").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad7(status) {
+  var dato1 = Number(document.getElementById("estAct7").innerHTML);
+  var dato2 = document.getElementById("Act7").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto7").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad8(status) {
+  var dato1 = Number(document.getElementById("estAct8").innerHTML);
+  var dato2 = document.getElementById("Act8").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto8").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad9(status) {
+  var dato1 = Number(document.getElementById("estAct9").innerHTML);
+  var dato2 = document.getElementById("Act9").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto9").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad10(status) {
+  var dato1 = Number(document.getElementById("estAct10").innerHTML);
+  var dato2 = document.getElementById("Act10").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto10").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad11(status) {
+  var dato1 = Number(document.getElementById("estAct11").innerHTML);
+  var dato2 = document.getElementById("Act11").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto11").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad12(status) {
+  var dato1 = Number(document.getElementById("estAct12").innerHTML);
+  var dato2 = document.getElementById("Act12").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto12").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad13(status) {
+  var dato1 = Number(document.getElementById("estAct13").innerHTML);
+  var dato2 = document.getElementById("Act13").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto13").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad14(status) {
+  var dato1 = Number(document.getElementById("estAct14").innerHTML);
+  var dato2 = document.getElementById("Act14").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto14").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad15(status) {
+  var dato1 = Number(document.getElementById("estAct15").innerHTML);
+  var dato2 = document.getElementById("Act15").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto15").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad16(status) {
+  var dato1 = Number(document.getElementById("estAct16").innerHTML);
+  var dato2 = document.getElementById("Act16").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto16").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad17(status) {
+  var dato1 = Number(document.getElementById("estAct17").innerHTML);
+  var dato2 = document.getElementById("Act17").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto17").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad18(status) {
+  var dato1 = Number(document.getElementById("estAct18").innerHTML);
+  var dato2 = document.getElementById("Act18").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto18").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad19(status) {
+  var dato1 = Number(document.getElementById("estAct19").innerHTML);
+  var dato2 = document.getElementById("Act19").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto19").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad20(status) {
+  var dato1 = Number(document.getElementById("estAct20").innerHTML);
+  var dato2 = document.getElementById("Act20").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto20").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad21(status) {
+  var dato1 = Number(document.getElementById("estAct21").innerHTML);
+  var dato2 = document.getElementById("Act21").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto21").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad22(status) {
+  var dato1 = Number(document.getElementById("estAct22").innerHTML);
+  var dato2 = document.getElementById("Act22").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto22").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad23(status) {
+  var dato1 = Number(document.getElementById("estAct23").innerHTML);
+  var dato2 = document.getElementById("Act23").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto23").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad24(status) {
+  var dato1 = Number(document.getElementById("estAct24").innerHTML);
+  var dato2 = document.getElementById("Act24").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto24").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad25(status) {
+  var dato1 = Number(document.getElementById("estAct25").innerHTML);
+  var dato2 = document.getElementById("Act25").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto25").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad26(status) {
+  var dato1 = Number(document.getElementById("estAct26").innerHTML);
+  var dato2 = document.getElementById("Act26").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto26").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad27(status) {
+  var dato1 = Number(document.getElementById("estAct27").innerHTML);
+  var dato2 = document.getElementById("Act27").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto27").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad28(status) {
+  var dato1 = Number(document.getElementById("estAct28").innerHTML);
+  var dato2 = document.getElementById("Act28").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto28").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad29(status) {
+  var dato1 = Number(document.getElementById("estAct29").innerHTML);
+  var dato2 = document.getElementById("Act29").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto29").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad30(status) {
+  var dato1 = Number(document.getElementById("estAct30").innerHTML);
+  var dato2 = document.getElementById("Act30").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto30").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad31(status) {
+  var dato1 = Number(document.getElementById("estAct31").innerHTML);
+  var dato2 = document.getElementById("Act31").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto31").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad32(status) {
+  var dato1 = Number(document.getElementById("estAct32").innerHTML);
+  var dato2 = document.getElementById("Act32").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto32").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad33(status) {
+  var dato1 = Number(document.getElementById("estAct33").innerHTML);
+  var dato2 = document.getElementById("Act33").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto33").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad34(status) {
+  var dato1 = Number(document.getElementById("estAct34").innerHTML);
+  var dato2 = document.getElementById("Act34").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto34").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad35(status) {
+  var dato1 = Number(document.getElementById("estAct35").innerHTML);
+  var dato2 = document.getElementById("Act35").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto35").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad36(status) {
+  var dato1 = Number(document.getElementById("estAct36").innerHTML);
+  var dato2 = document.getElementById("Act36").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto36").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad37(status) {
+  var dato1 = Number(document.getElementById("estAct37").innerHTML);
+  var dato2 = document.getElementById("Act37").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto37").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad38(status) {
+  var dato1 = Number(document.getElementById("estAct38").innerHTML);
+  var dato2 = document.getElementById("Act38").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto38").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad39(status) {
+  var dato1 = Number(document.getElementById("estAct39").innerHTML);
+  var dato2 = document.getElementById("Act39").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto39").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad40(status) {
+  var dato1 = Number(document.getElementById("estAct40").innerHTML);
+  var dato2 = document.getElementById("Act40").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto40").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad41(status) {
+  var dato1 = Number(document.getElementById("estAct41").innerHTML);
+  var dato2 = document.getElementById("Act41").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto41").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad42(status) {
+  var dato1 = Number(document.getElementById("estAct42").innerHTML);
+  var dato2 = document.getElementById("Act42").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto42").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad43(status) {
+  var dato1 = Number(document.getElementById("estAct43").innerHTML);
+  var dato2 = document.getElementById("Act43").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto43").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad44(status) {
+  var dato1 = Number(document.getElementById("estAct44").innerHTML);
+  var dato2 = document.getElementById("Act44").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto44").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad45(status) {
+  var dato1 = Number(document.getElementById("estAct45").innerHTML);
+  var dato2 = document.getElementById("Act45").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto45").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad46(status) {
+  var dato1 = Number(document.getElementById("estAct46").innerHTML);
+  var dato2 = document.getElementById("Act46").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto46").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad47(status) {
+  var dato1 = Number(document.getElementById("estAct47").innerHTML);
+  var dato2 = document.getElementById("Act47").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto47").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad48(status) {
+  var dato1 = Number(document.getElementById("estAct48").innerHTML);
+  var dato2 = document.getElementById("Act48").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto48").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad49(status) {
+  var dato1 = Number(document.getElementById("estAct49").innerHTML);
+  var dato2 = document.getElementById("Act49").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto49").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad50(status) {
+  var dato1 = Number(document.getElementById("estAct50").innerHTML);
+  var dato2 = document.getElementById("Act50").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto50").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+function actividad51(status) {
+  var dato1 = Number(document.getElementById("estAct51").innerHTML);
+  var dato2 = document.getElementById("Act51").innerHTML;
+  var valor = status;
+  var dato3=""
+  if(valor==0){dato3="Terminado conforme"}
+  if(valor==1){dato3="Terminado no conforme"}
+  if(valor==2){dato3="Sin terminar"}
+  //document.getElementById('texto2').innerHTML=valor;
+  var dato4 = document.getElementById("ingresatexto51").value;
+  var dato5 = 1035;//incluir idObra
+  var dato6 = Number(document.getElementById("ord_viv").innerHTML);
+  var itera3 = Object.keys(list_act).length;
+  for(var n = 0; n < itera3; n++) {
+    if(dato2==list_act[n]){
+      dato7=list_emp[n];
+    }
+  }
+  var xhr = new XMLHttpRequest();
+  var url = "https://controlobraapi.i3code.net/api/Registros/InsertOrUpdate";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // La solicitud se ha completado con éxito
+        var respuesta = JSON.parse(xhr.responseText);
+        console.log(respuesta);
+        var mensaje = confirm("Registro guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      } else {
+        // La solicitud no se completó correctamente
+        console.log("Error en la solicitud. Estado: " + xhr.status);
+        var mensaje = confirm("ERROR: Registro no guardado");
+        //Verificamos si el usuario acepto el mensaje
+        if (mensaje) {
+        actualizar();//actualizar html según obra
+        }
+      }
+    }
+  };
+  if(dato1==""){
+    var data = JSON.stringify({"idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }else{
+    var data = JSON.stringify({"id":dato1, "idObra":dato5, "numero":dato6, "actividad":dato2, "empresa":dato7, "status":dato3, "comentario":dato4});
+  }
+  //document.getElementById('texto').innerHTML=dato7;
+  //document.getElementById('texto').innerHTML=data;
+  xhr.send(data);
+  //ConfirmDemo();
+}
+//FIN POST
+//JSON.stringify({"id":dato1, "idObra":1018, "nombre":dato2, "empresa":dato3, "email":dato4})
+//{"idObra":18, "numero":22, "actividad":"Colocación módulos StepUP", "empresa":"", "status":"Sin terminar", "comentario":"Todo mal"}
+</script>
+</head>
+<body onload="actividades();" >
+<div id="container">
+<table>
+  <tr>
+    <td><b><p>ID: </p></b></td>
+    <td><p id="vivienda"></p></td>
+    <td><p>  /  </p></td>
+    <td><b><p>Orden: </p></b></td>
+    <td><p id="ord_viv"></p></td>
+    <td><p>  /  </p></td>
+    <td><b><p>Vivienda: </p></b></td>
+    <td><p id="nom_viv">1</p></td>
+  </tr>
+</table>
+<table style="text-align: center;">
+  <tbody>
+    <tr>
+        <td id= "Act0"style="text-align: right; font-size: 11px; padding-right: 2px;">REPLANTEO PLADUR Y CANAL A TECHO</td>
+        <td id= "estAct_col0" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct0" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde0" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad0(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo0" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad0(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo0" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad0(2)">ST</button></td>
+        <td><input id="ingresatexto0" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act1"style="text-align: right; font-size: 11px; padding-right: 2px;">ANDAMIOS</td>
+        <td id= "estAct_col1" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct1" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde1" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad1(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo1" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad1(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo1" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad1(2)">ST</button></td>
+        <td><input id="ingresatexto1" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act2"style="text-align: right; font-size: 11px; padding-right: 2px;">BARANDILLAS EXTERIORES</td>
+        <td id= "estAct_col2" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct2" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde2" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad2(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo2" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad2(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo2" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad2(2)">ST</button></td>
+        <td><input id="ingresatexto2" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act3"style="text-align: right; font-size: 11px; padding-right: 2px;">BAJANTES</td>
+        <td id= "estAct_col3" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct3" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde3" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad3(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo3" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad3(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo3" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad3(2)">ST</button></td>
+        <td><input id="ingresatexto3" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act4"style="text-align: right; font-size: 11px; padding-right: 2px;">VERTICALES DE VENTILACION</td>
+        <td id= "estAct_col4" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct4" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde4" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad4(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo4" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad4(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo4" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad4(2)">ST</button></td>
+        <td><input id="ingresatexto4" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act5"style="text-align: right; font-size: 11px; padding-right: 2px;">MONTANTE GAS REFRIGERANTE</td>
+        <td id= "estAct_col5" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct5" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde5" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad5(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo5" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad5(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo5" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad5(2)">ST</button></td>
+        <td><input id="ingresatexto5" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act6"style="text-align: right; font-size: 11px; padding-right: 2px;">VERTICALES VENTILACION GARAJE</td>
+        <td id= "estAct_col6" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct6" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde6" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad6(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo6" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad6(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo6" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad6(2)">ST</button></td>
+        <td><input id="ingresatexto6" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act7"style="text-align: right; font-size: 11px; padding-right: 2px;">IMPERMEABILIZACION PERIMETRO CARA VISTA</td>
+        <td id= "estAct_col7" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct7" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde7" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad7(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo7" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad7(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo7" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad7(2)">ST</button></td>
+        <td><input id="ingresatexto7" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act8"style="text-align: right; font-size: 11px; padding-right: 2px;">LADRILLO CARA VISTA</td>
+        <td id= "estAct_col8" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct8" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde8" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad8(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo8" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad8(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo8" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad8(2)">ST</button></td>
+        <td><input id="ingresatexto8" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act9"style="text-align: right; font-size: 11px; padding-right: 2px;">GRAN FORMATO</td>
+        <td id= "estAct_col9" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct9" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde9" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad9(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo9" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad9(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo9" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad9(2)">ST</button></td>
+        <td><input id="ingresatexto9" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act10"style="text-align: right; font-size: 11px; padding-right: 2px;">ENFOSCADO CAMARAS</td>
+        <td id= "estAct_col10" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct10" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde10" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad10(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo10" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad10(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo10" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad10(2)">ST</button></td>
+        <td><input id="ingresatexto10" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act11"style="text-align: right; font-size: 11px; padding-right: 2px;">PREMARCOS Y COLECTORES</td>
+        <td id= "estAct_col11" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct11" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde11" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad11(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo11" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad11(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo11" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad11(2)">ST</button></td>
+        <td><input id="ingresatexto11" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act12"style="text-align: right; font-size: 11px; padding-right: 2px;">AISLAMIENTO FACHADAS Y TECHOS EXT.</td>
+        <td id= "estAct_col12" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct12" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde12" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad12(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo12" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad12(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo12" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad12(2)">ST</button></td>
+        <td><input id="ingresatexto12" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act13"style="text-align: right; font-size: 11px; padding-right: 2px;">PUNTOS DE LUZ EN TECHO</td>
+        <td id= "estAct_col13" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct13" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde13" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad13(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo13" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad13(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo13" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad13(2)">ST</button></td>
+        <td><input id="ingresatexto13" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act14"style="text-align: right; font-size: 11px; padding-right: 2px;">APERTURA DE ROZAS</td>
+        <td id= "estAct_col14" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct14" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde14" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad14(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo14" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad14(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo14" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad14(2)">ST</button></td>
+        <td><input id="ingresatexto14" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act15"style="text-align: right; font-size: 11px; padding-right: 2px;">INST. ELECTRICA ZZCC</td>
+        <td id= "estAct_col15" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct15" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde15" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad15(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo15" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad15(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo15" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad15(2)">ST</button></td>
+        <td><input id="ingresatexto15" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act16"style="text-align: right; font-size: 11px; padding-right: 2px;">RASEOS, YESOS EN TECHOS Y ZZCC</td>
+        <td id= "estAct_col16" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct16" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde16" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad16(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo16" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad16(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo16" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad16(2)">ST</button></td>
+        <td><input id="ingresatexto16" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act17"style="text-align: right; font-size: 11px; padding-right: 2px;">SANEAMIENTO INTERIOR</td>
+        <td id= "estAct_col17" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct17" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde17" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad17(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo17" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad17(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo17" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad17(2)">ST</button></td>
+        <td><input id="ingresatexto17" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act18"style="text-align: right; font-size: 11px; padding-right: 2px;">HORIZONTALES DE VENTILACION Y MAQUINAS</td>
+        <td id= "estAct_col18" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct18" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde18" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad18(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo18" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad18(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo18" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad18(2)">ST</button></td>
+        <td><input id="ingresatexto18" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act19"style="text-align: right; font-size: 11px; padding-right: 2px;">AISLAMIENTO SUELOS</td>
+        <td id= "estAct_col19" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct19" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde19" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad19(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo19" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad19(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo19" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad19(2)">ST</button></td>
+        <td><input id="ingresatexto19" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act20"style="text-align: right; font-size: 11px; padding-right: 2px;">SUELO RADIANTE</td>
+        <td id= "estAct_col20" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct20" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde20" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad20(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo20" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad20(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo20" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad20(2)">ST</button></td>
+        <td><input id="ingresatexto20" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act21"style="text-align: right; font-size: 11px; padding-right: 2px;">FORMACIÓN PENDIENTES TERRAZAS</td>
+        <td id= "estAct_col21" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct21" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde21" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad21(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo21" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad21(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo21" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad21(2)">ST</button></td>
+        <td><input id="ingresatexto21" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act22"style="text-align: right; font-size: 11px; padding-right: 2px;">IMPERMEABILIZACION TERRAZAS</td>
+        <td id= "estAct_col22" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct22" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde22" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad22(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo22" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad22(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo22" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad22(2)">ST</button></td>
+        <td><input id="ingresatexto22" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act23"style="text-align: right; font-size: 11px; padding-right: 2px;">RECRECIDOS Y PROTECCION DE IMPERMEABILIZACION</td>
+        <td id= "estAct_col23" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct23" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde23" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad23(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo23" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad23(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo23" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad23(2)">ST</button></td>
+        <td><input id="ingresatexto23" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act24"style="text-align: right; font-size: 11px; padding-right: 2px;">1ª CARA PLADUR</td>
+        <td id= "estAct_col24" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct24" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde24" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad24(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo24" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad24(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo24" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad24(2)">ST</button></td>
+        <td><input id="ingresatexto24" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act25"style="text-align: right; font-size: 11px; padding-right: 2px;">FONTANERÍA INTERIOR</td>
+        <td id= "estAct_col25" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct25" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde25" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad25(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo25" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad25(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo25" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad25(2)">ST</button></td>
+        <td><input id="ingresatexto25" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act26"style="text-align: right; font-size: 11px; padding-right: 2px;">ELECTRICIDAD TUBO</td>
+        <td id= "estAct_col26" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct26" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde26" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad26(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo26" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad26(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo26" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad26(2)">ST</button></td>
+        <td><input id="ingresatexto26" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act27"style="text-align: right; font-size: 11px; padding-right: 2px;">2ª CARA DE PLADUR</td>
+        <td id= "estAct_col27" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct27" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde27" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad27(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo27" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad27(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo27" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad27(2)">ST</button></td>
+        <td><input id="ingresatexto27" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act28"style="text-align: right; font-size: 11px; padding-right: 2px;">ELECTRICIDAD CABLE</td>
+        <td id= "estAct_col28" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct28" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde28" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad28(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo28" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad28(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo28" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad28(2)">ST</button></td>
+        <td><input id="ingresatexto28" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act29"style="text-align: right; font-size: 11px; padding-right: 2px;">ENCINTADO PAREDES</td>
+        <td id= "estAct_col29" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct29" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde29" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad29(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo29" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad29(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo29" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad29(2)">ST</button></td>
+        <td><input id="ingresatexto29" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act30"style="text-align: right; font-size: 11px; padding-right: 2px;">TECHOS DE ESCAYOLA</td>
+        <td id= "estAct_col30" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct30" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde30" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad30(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo30" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad30(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo30" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad30(2)">ST</button></td>
+        <td><input id="ingresatexto30" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act31"style="text-align: right; font-size: 11px; padding-right: 2px;">RECIBIDO DE DUCHAS Y BAÑERAS</td>
+        <td id= "estAct_col31" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct31" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde31" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad31(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo31" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad31(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo31" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad31(2)">ST</button></td>
+        <td><input id="ingresatexto31" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act32"style="text-align: right; font-size: 11px; padding-right: 2px;">ALICATADO</td>
+        <td id= "estAct_col32" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct32" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde32" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad32(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo32" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad32(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo32" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad32(2)">ST</button></td>
+        <td><input id="ingresatexto32" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act33"style="text-align: right; font-size: 11px; padding-right: 2px;">SOLADO CERAMICO Y TERRAZAS</td>
+        <td id= "estAct_col33" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct33" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde33" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad33(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo33" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad33(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo33" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad33(2)">ST</button></td>
+        <td><input id="ingresatexto33" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act34"style="text-align: right; font-size: 11px; padding-right: 2px;">FALSO TECHO METALICO TERRAZAS</td>
+        <td id= "estAct_col34" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct34" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde34" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad34(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo34" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad34(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo34" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad34(2)">ST</button></td>
+        <td><input id="ingresatexto34" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act35"style="text-align: right; font-size: 11px; padding-right: 2px;">VIERTEAGUAS</td>
+        <td id= "estAct_col35" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct35" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde35" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad35(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo35" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad35(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo35" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad35(2)">ST</button></td>
+        <td><input id="ingresatexto35" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act36"style="text-align: right; font-size: 11px; padding-right: 2px;">VIDRIOS TERRAZAS</td>
+        <td id= "estAct_col36" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct36" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde36" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad36(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo36" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad36(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo36" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad36(2)">ST</button></td>
+        <td><input id="ingresatexto36" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act37"style="text-align: right; font-size: 11px; padding-right: 2px;">CUADROS Y MECANISMOS</td>
+        <td id= "estAct_col37" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct37" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde37" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad37(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo37" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad37(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo37" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad37(2)">ST</button></td>
+        <td><input id="ingresatexto37" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act38"style="text-align: right; font-size: 11px; padding-right: 2px;">CARPINTERÍA PVC Y VIDRIO</td>
+        <td id= "estAct_col38" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct38" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde38" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad38(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo38" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad38(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo38" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad38(2)">ST</button></td>
+        <td><input id="ingresatexto38" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act39"style="text-align: right; font-size: 11px; padding-right: 2px;">CARCASAS Y PUERTAS DE ENTRADA</td>
+        <td id= "estAct_col39" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct39" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde39" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad39(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo39" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad39(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo39" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad39(2)">ST</button></td>
+        <td><input id="ingresatexto39" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act40"style="text-align: right; font-size: 11px; padding-right: 2px;">1ª MANO DE PINTURA. TECHOS Y COCINAS ACABADAS</td>
+        <td id= "estAct_col40" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct40" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde40" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad40(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo40" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad40(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo40" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad40(2)">ST</button></td>
+        <td><input id="ingresatexto40" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act41"style="text-align: right; font-size: 11px; padding-right: 2px;">TARIMA</td>
+        <td id= "estAct_col41" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct41" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde41" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad41(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo41" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad41(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo41" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad41(2)">ST</button></td>
+        <td><input id="ingresatexto41" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act42"style="text-align: right; font-size: 11px; padding-right: 2px;">COCINAS</td>
+        <td id= "estAct_col42" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct42" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde42" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad42(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo42" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad42(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo42" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad42(2)">ST</button></td>
+        <td><input id="ingresatexto42" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act43"style="text-align: right; font-size: 11px; padding-right: 2px;">SANITARIOS</td>
+        <td id= "estAct_col43" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct43" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde43" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad43(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo43" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad43(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo43" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad43(2)">ST</button></td>
+        <td><input id="ingresatexto43" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act44"style="text-align: right; font-size: 11px; padding-right: 2px;">PUERTAS DE PASO Y FRENTES DE ARMARIO</td>
+        <td id= "estAct_col44" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct44" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde44" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad44(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo44" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad44(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo44" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad44(2)">ST</button></td>
+        <td><input id="ingresatexto44" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act45"style="text-align: right; font-size: 11px; padding-right: 2px;">RODAPIE</td>
+        <td id= "estAct_col45" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct45" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde45" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad45(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo45" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad45(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo45" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad45(2)">ST</button></td>
+        <td><input id="ingresatexto45" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act46"style="text-align: right; font-size: 11px; padding-right: 2px;">REJILLAS Y TERMOSTATOS</td>
+        <td id= "estAct_col46" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct46" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde46" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad46(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo46" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad46(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo46" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad46(2)">ST</button></td>
+        <td><input id="ingresatexto46" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act47"style="text-align: right; font-size: 11px; padding-right: 2px;">APLIQUES, TERMOSTATOS Y EMBELLECEDORES</td>
+        <td id= "estAct_col47" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct47" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde47" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad47(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo47" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad47(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo47" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad47(2)">ST</button></td>
+        <td><input id="ingresatexto47" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act48"style="text-align: right; font-size: 11px; padding-right: 2px;">ESPEJOS</td>
+        <td id= "estAct_col48" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct48" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde48" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad48(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo48" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad48(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo48" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad48(2)">ST</button></td>
+        <td><input id="ingresatexto48" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act49"style="text-align: right; font-size: 11px; padding-right: 2px;">2ª MANO DE PINTURA</td>
+        <td id= "estAct_col49" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct49" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde49" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad49(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo49" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad49(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo49" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad49(2)">ST</button></td>
+        <td><input id="ingresatexto49" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act50"style="text-align: right; font-size: 11px; padding-right: 2px;">LIMPIEZA</td>
+        <td id= "estAct_col50" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct50" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde50" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad50(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo50" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad50(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo50" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad50(2)">ST</button></td>
+        <td><input id="ingresatexto50" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+    <tr>
+        <td id= "Act51"style="text-align: right; font-size: 11px; padding-right: 2px;">REPASOS DE ENTREGA</td>
+        <td id= "estAct_col51" style="background: #D8D5CE; width:6%; border: black 1px solid;"><p id= "estAct51" style="display:none;"></p></td>
+        <td class="tdcelda"><button id= "Verde51" class="btn-circle5" type="button" style="background: #00ff00;" onclick="actividad51(0)">TC</button></td>
+        <td class="tdcelda"><button id= "Amarillo51" class="btn-circle5" type="button" style="background: #F1F622;"onclick="actividad51(1)">TN</button></td>
+        <td class="tdcelda"><button id= "Rojo51" class="btn-circle5" type="button" style="background: #FE2722;" onclick="actividad51(2)">ST</button></td>
+        <td><input id="ingresatexto51" type="text" style="background: #F2F2F2; width: 120%; font-size: 11px;"></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+</body>
+<footer style="text-align: center; padding: 10px;">
+  <p>Author: ACR Innova</p>
+</footer>
+</html>
